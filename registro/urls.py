@@ -6,8 +6,10 @@ from django.contrib.auth import authenticate,logout,login
 from django.contrib.auth.decorators import login_required
 
 urlpatterns =[
-    path('', views.index, name="index"),
-    path('registro/', views.registro, name="registro"),
-    path('ingresar/', views.ingresar, name="ingresar"),
-    path('salir/', views.logout, name="salir")
+    path('',views.index, name="index"),
+    path('listado/',views.listado, name="listado"),
+    path('tiendas/',views.tiendas, name="tiendas"),
+    path('registro/',views.registro, name="registro"),
+    path('ingresar/',views.ingresar, name="ingresar"),
+    path('salir/',views.logout, name="salir")
 ]

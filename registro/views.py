@@ -10,6 +10,12 @@ from .models import Usuario, Producto
 def index(request):
     return render(request,'index.html')
 
+def listado(request):
+    return render(request,'listado.html')
+
+def tiendas(request):
+    return render(request,'tiendas.html')
+    
 def registro(request):
     return render(request,'registro.html')
 
