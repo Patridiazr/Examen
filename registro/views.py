@@ -15,7 +15,10 @@ def listado(request):
 
 def tiendas(request):
     return render(request,'tiendas.html')
-    
+
+def productos(request):
+    return render(request,'productos.html')
+
 def registro(request):
     return render(request,'registro.html')
 
