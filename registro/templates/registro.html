@@ -21,9 +21,10 @@
                                 <h3 class="panel-title">Bienvenido, Registrese </h3>
                         </div>
                        <div class="panel-body">
-                        <form role="form">   
+                        <form role="form" action="crear_U">   
+                            {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Correo electronico">
+                                        <input type="text" name="text" id="text" class="form-control input-sm" placeholder="Nombre de Usuario">
                                     </div>
         
                                     <div class="row">

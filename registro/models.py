@@ -13,6 +13,7 @@ class Tienda():
     direccion = models.CharField(max_length = 100)
     ciudad = models.CharField(max_length = 100)
     region = models.CharField(max_length = 100)
+    aprobado = models.BooleanField(default=False)
 
 class Producto():
     nombre = models.CharField(max_length = 100)
@@ -20,5 +21,7 @@ class Producto():
     costoR = models.IntegerField()
     tienda = models.CharField(max_length = 100)
     notas = models.CharField(max_length = 200)
+
+
 
 

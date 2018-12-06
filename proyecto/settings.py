@@ -143,8 +143,8 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '216c8778bbfaf1b4cde392128681210a'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_URL = 'login'
-LOGOUT_URL =''
+LOGIN_URL = 'ingresar'
+LOGOUT_URL ='index'
 LOGIN_REDIRECT_URL = 'index'
 
 REST_FRAMEWORK = {

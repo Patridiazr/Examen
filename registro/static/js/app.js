@@ -36,3 +36,8 @@ function newFunction() {
     })
     </script>;
 }
+
+
+function validacion(){
+  
+}
