@@ -17,15 +17,20 @@
             
             <div class="box">
                 <h1>Ingresar</h1>
-                <input type="email" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-                <input type="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-                <a href="#"><div class="btn">Sign In</div></a>
+                <input type="text" name="username" value="username" />
+                <input type="password" name="password" value="password"  />
+                <a href="{% url 'login' %}"><div class="btn">Sign In</div></a>
                 <a href="{% url 'registro' %}"><div id="btn2">Sign Up</div></a>
             </div>          
         </form>
         
         <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
         <a href="{% url 'social:begin' 'facebook' %}">Inicia con Facebook</a>
+        
+<fb:login-button 
+scope="public_profile,email"
+onlogin="checkLoginState();">
+</fb:login-button>
           
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
   

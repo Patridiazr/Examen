@@ -35,73 +35,66 @@
                         <li><a href="{% url 'salir' %}">SALIR</a></li>
                     {% endif %}
                 </ul>
-            </div>
-        
-        </div>
+            </div>   
     </nav>
     <!--REGISTRO DE TIENDAS-->
     <div class="container-fluid">
-            <div class="container">
-                <div class="formBox">
-                    <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1>Registro de tiendas</h1>
-                                </div>
+        <div class="container">
+            <div class="formBox">
+                <form action="crear_T" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Registro de tiendas</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="inputBox ">
+                                <h3>Nombre de Tienda</h3>
+                                <input type="text" name="nombre" class="input">
                             </div>
-    
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="inputBox ">
-                                        <h3>Nombre de Tienda</h3>
-                                        <input type="text" name="" class="input">
-                                    </div>
-                                </div>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="inputBox">
+                                <h3>Sucursal</h3>
+                                <input type="text" name="sucursal" class="input">
                             </div>
-    
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="inputBox">
-                                        <h3>Sucursal</h3>
-                                        <input type="text" name="" class="input">
-                                    </div>
-                                </div>
-    
-                                <div class="col-sm-6">
-                                    <div class="inputBox">
-                                        <h3>Direccion</h3>
-                                        <input type="text" name="" class="input">
-                                    </div>
-                                </div>
+                        </div>    
+                        <div class="col-sm-12">
+                            <div class="inputBox">
+                                <h3>Direccion</h3>
+                                <input type="text" name="direccion" class="input">
                             </div>
-    
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="inputBox">
-                                        <h3>Ciudad</h3>
-                                        <textarea class="input"></textarea>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="inputBox">
+                                <h3>Ciudad</h3>
+                                <input type="text" name="ciudad" class="input">
                             </div>
-
-                            <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="inputBox">
-                                            <h3>Region</h3>
-                                            <textarea class="input"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input type="submit" name="" class="button" value="Send Message">
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="inputBox">
+                                <h3>Region</h3>
+                                <input type="text" name="region" class="input">
                             </div>
-                    </form>
-                </div>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="submit" name="" class="button" value="Registrar">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     
         <br>
         <!--FOOTER-->

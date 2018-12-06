@@ -43,67 +43,61 @@
 
     <br>
     <div class="container-fluid">
-            <div class="container">
-                <div class="formBox">
-                    <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1>Registro de compras</h1>
-                                </div>
+        <div class="container">
+            <div class="formBox">
+                <form action="crear_p" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1>Registro de compras</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="inputBox ">
+                                <h3>Nombre de producto</h3>
+                                <input type="text" name="nombre" class="input" required>
+                                
                             </div>
-    
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="inputBox ">
-                                        <div class="inputText" requeried>Nombre de producto</div>
-                                        <input type="text" name="" class="input">
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="inputBox">
+                                <h3>Tienda</h3>
+                                <input type="text" name="tienda" class="input">    
                             </div>
-    
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="inputBox">
-                                        <div class="inputText">Costo Presupuestado</div>
-                                        <input type="text" name="" class="input">
-                                    </div>
-                                </div>
-    
-                                <div class="col-sm-6">
-                                    <div class="inputBox">
-                                        <div class="inputText">Costo Real</div>
-                                        <input type="text" name="" class="input">
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="inputBox">
+                                <h3>Costo Presupuestado</h3>
+                                <input type="text" name="costoP" class="input">                               
                             </div>
-    
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="inputBox">
-                                        <div class="inputText">Tienda</div>
-                                        <textarea class="input"></textarea>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="inputBox">
+                                <h3>Costo Real</h3>
+                                <input type="text" name="costoR" class="input">
                             </div>
-
-                            <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="inputBox">
-                                            <div class="inputText">Comentarios</div>
-                                            <textarea class="input"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input type="submit" name="" class="button" value="Send Message">
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="inputBox">
+                                <h3>Comentarios</h3>
+                                <input type="text" name="notas" class="input">                               
                             </div>
-                    </form>
-                </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"><input type="submit" name="" class="button" value="Agregar" ></div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
 
 

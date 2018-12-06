@@ -65,18 +65,55 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
 # Tienda
 def crear_T(request):
-    nombre
-    sucursal
-    direccion
-    ciudad
-    
+    nombre = request.POST.get('nombre')
+    sucursal = request.POST.get('sucursal')
+    direccion = request.POST.get('direccion')
+    ciudad = request.POST.get('ciudad')
+    region = request.POST.get('region')
+    ti = Tienda(nombre=nombre, sucursal=sucursal, direccion=direccion, ciudad=ciudad, region=region)
+    ti.save()
+    return redirect('tiendas')
+
+def aprovar_T(request,id):
+    ti = Tienda.objects.all(pk = id)
+    ti.aprobado = True
+    ti.save()
+    return redirect('listado')
+
+def eliminar_T(request,id):
+    ti = Tienda.objects.all(pk = id)
+    ti.remove()
+    return redirect('tiendas')
+
+
+
 # Producto
+def create_P(request):
+    nombre = request.POST.get('nombre','')
+    costoP = request.POST.get('costoP','')
+    costoR = request.POST.get('costoR','')
+    tienda = request.POST.get('tienda','')
+    notas = request.POST.get('notas','')
+    po = Producto(nombre=nombre,costoP=costoP,costoR=costoR,tienda=tienda,notas=notas)
+    po.save()
+    return redirect('index')
+    
+def editar_P(request,id):
+    nombre = request.POST.get('nombre')
+    costoP = request.POST.get('costoP')
+    costoR = request.POST.get('costoR')
+    tienda = request.POST.get('tienda')
+    notas = request.POST.get('notas')
+    po = Producto.objects.all(pk = id)
+    po.nombre = nombre
+    po.costoP = costoP
+    po.costoR = costoR
+    po.tienda = tienda
+    po.notas = notas
+    po.save()
+    return redirect('index')
 
-
-
-
-
-
-
-
-
+def eliminar_P(request,id):
+    po = Producto.objects.all(pk=id)
+    po.remove()
+    return redirect('index')
