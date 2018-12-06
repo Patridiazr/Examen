@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="manifest" href="/manifest.json">
 </head>
 <body>
-        <form method="post" action="index.html">
+        <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             
             <div class="box">
                 <h1>Ingresar</h1>
-                <input type="text" name="username" value="username" />
-                <input type="password" name="password" value="password"  />
-                <a href="{% url 'login' %}"><div class="btn">Sign In</div></a>
-                <a href="{% url 'registro' %}"><div id="btn2">Sign Up</div></a>
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password"  placeholder="Contraseña" />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+                <a href="{% url 'registro' %}"><div id="btn2">Registrarse</div></a>
             </div>          
         </form>
         
-        <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
-        <a href="{% url 'social:begin' 'facebook' %}">Inicia con Facebook</a>
+        <p>Olvidaste la contraseña? <u style="color:#f1c40f;">Click aqui!</u></p>
+        <a href="{% url 'social:begin' 'facebook' %}" style="color:#f1c40f;">Inicia con Facebook</a>
         
 <fb:login-button 
 scope="public_profile,email"

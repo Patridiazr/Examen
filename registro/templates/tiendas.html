@@ -12,7 +12,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/tiendas.css' %}">
-    <title>Document</title>
+    <title>Tiendas</title>
 </head>
 <body>
     
@@ -95,6 +95,39 @@
             </div>
         </div>
     </div>
+    <div class="row" >
+        <div class="col-sm-12" >
+            <h2 style="text-align: center;">Listado de tiendas aceptadas</h2>        
+        </div>
+    </div>
+    {% if tiendas %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Sucursal</th>
+                <th>Direccion</th>
+                <th>Ciudad</th>
+                <th>Region</th>               
+            </tr>
+        </thead>
+        <tbody>
+            {% for l in tiendas %}
+            {% if l.aprobado %}
+            <tr>
+                <td>{{l.nombre}}</td>
+                <td>{{l.sucursal}}</td>
+                <td>{{l.direccion}}</td>
+                <td>{{l.ciudad}}</td>
+                <td>{{l.region}}</td>                
+                
+            {% endif %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+   
     
         <br>
         <!--FOOTER-->

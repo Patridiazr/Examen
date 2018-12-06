@@ -1,47 +1,27 @@
 {
   "name": "Lista de compras",
-  "short_name": "ListApp",
+  "short_name": "COMPRApp",
   "icons": [
     {
-      "src": "static/img/icon-72x72.png",
+      "src": "static/img/75.png",
       "type": "image/png",
-      "sizes": "72x72"
+      "sizes": "75x75"
     },
     {
-      "src": "static/img/icons/icon-96x96.png",
+      "src": "static/img/100.png",
       "type": "image/png",
-      "sizes": "96x96"
+      "sizes": "100x100"
     },
     {
-      "src": "static/img/icon-128x128.png",
+      "src": "static/img/125.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "static/img/icon-144x144.png",
+      "src": "static/img/150.png",
       "type": "image/png",
       "sizes": "144x144"
-    },
-    {
-      "src": "static/img/icon-152x152.png",
-      "type": "image/png",
-      "sizes": "152x152"
-    },
-    {
-      "src": "static/img/icon-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "static/img/icon-384x384.png",
-      "type": "image/png",
-      "sizes": "384x384"
-    },
-    {
-      "src": "static/img/icon-512x512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+    }    
   ],
   "start_url": "/",
   "display": "standalone",

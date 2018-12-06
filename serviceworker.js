@@ -1,7 +1,8 @@
-var CACHE_NAME = 'papaApp';
+var CACHE_NAME = 'COMPRApp';
 var urlsToCache = [
   '/',
-  './index.html',
+  '/home',
+  '/listados',
   '/static/css/estilos.css',
   '/static/js/app.js',
   '/static/css/flexboxgrid.css',

@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
     <link rel="manifest" href="/manifest.json">
+
     <title>Document</title> 
 </head>
 <body>
@@ -44,34 +45,66 @@
     <h1 style="text-align: center; color: white;" >Lista de Compras</h1>
     <br>
 <!-- Tabla de productos-->
-<table class="table-fill">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Costo Presupuestado</th>
-            <th>Costo Real</th>
-            <th>Tienda</th>
-            <th>Comentarios</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tent</td>
-            <td>1</td>
-            <td>$279.00</td>
-            <td>$279.00</td>
-          </tr>
-          <tfoot>
-                <tr>
-                  <th colspan="4">Grand Total</th>
-                  <th>$667.90</th>
-                </tr>
-        </tfoot>
-      </table>
+{% if listas %}
+    {% for l in listas %}        
+    <h4 style="text-align: center; color: white;">{{l.nombre}}</h4>
+        <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Costo Presupuestado</th>
+                        <th>Costo Real</th>
+                        <th>Tienda</th>
+                        <th>Comentarios</th>
+                        <th>Acciones</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if productos %}
+                    <tr>
+                        {% for p in productos %}
+                        {% if l.nombre == p.nlista %}
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.costoP}}</td>
+                        <td>{{p.costoR}}</td>
+                        <td>{{p.tienda}}</td>
+                        <td>{{p.notas}}</td>
+                        <td><button class="btn btn-default">Editar</button><button class="btn btn-danger">Borrar</button></td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                <tfoot>
+                    <tr>
+                        <th>(Cantidad)</th>
+                        <th>($$$)</th>
+                        <th>($$$)</th>
+                        
+                    </tr>        
+                </tfoot>
+            </table>
+            <br>
+            
+       
+    {% endfor %}
+{% else %}
+    <h1 style="text-align: center; color: white;" >No hay listas creadas</h1>
+{% endif %}
+<div class="row">
+    
+    <div class="col-sm-12" style="text-align: center" >
+       <button id="btnlistas">Agregar nueva lista</button>
+    </div>
+    
+</div>
+
+
+
 
 <br>
+
 <!-- Tabla de presupuestos-->
+<!--
 <h1 style="text-align: center; color: white;" >Presupuestos Anuales</h1>
    
         <table class="table-fill">
@@ -106,6 +139,22 @@
         </tbody>
         </table>
           <br>
+    -->
+
+
+          <div id="openModalCL" class="modal">
+                <div class="modal-content">
+                    <a href="#close" title="Close" class="close">X</a>                                      
+                    <form action="crear_L" method="POST">
+                        {% csrf_token %}
+                        <h4>Agregar lista</h4>
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre">
+                        <button class="btm btn-default"  type="submit">Agregar</button>
+                        <a class="btn btn-danger" href="{% url 'listado' %}">Cancelar</a>                      
+                    </form>
+                </div>
+            </div>
         <!--FOOTER-->
        
              
@@ -181,6 +230,28 @@
              </div>
     
     
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script>
+        var modal = document.getElementById('openModalCL');
+
+        var btn = document.getElementById("btnlistas");
+
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }  
+    </script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>    
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %} "></script>
+    <script src="{% static 'js/app.js' %} "></script>   
 </body>
 </html>

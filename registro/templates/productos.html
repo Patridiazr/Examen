@@ -61,11 +61,12 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="inputBox">
-                                <h3>Tienda</h3>
-                                <input type="text" name="tienda" class="input">    
+                                <div class="inputBox">
+                                    <h3>Comentarios</h3>
+                                    <input type="text" name="notas" class="input">                               
+                                </div>
                             </div>
-                        </div>
+                        
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -82,10 +83,32 @@
                         </div>
                     </div>
                     <div class="row">
+                        
+                        <div class="col-sm-6">
+                                <div class="inputBox">
+                                    <h3>Tienda</h3>
+                                    <select name="tienda" id="">
+                                            {% if tiendas %}
+                                            {% for l in tiendas %}
+                                            {% if l.aprobado == True %}
+                                            <option value="{{l.nombre}}">{{l.nombre}}</option>
+                                            {% endif %}
+                                            {% endfor %}
+                                            {% endif %}
+                                        </select>  
+                                </div>
+                            </div>
                         <div class="col-sm-6">
                             <div class="inputBox">
-                                <h3>Comentarios</h3>
-                                <input type="text" name="notas" class="input">                               
+                                <h3>Nombre lista</h3>
+                                <select name="lista" id="">
+                                    {% if listas %}
+                                    {% for l in listas %}
+                                    <option value="{{l.nombre}}">{{l.nombre}}</option>
+                                    {% endfor %}
+                                    {% endif %}
+                                </select>
+
                             </div>
                         </div>
                     </div>

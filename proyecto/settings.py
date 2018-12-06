@@ -145,7 +145,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = 'ingresar'
 LOGOUT_URL ='index'
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'home'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -154,4 +154,4 @@ REST_FRAMEWORK = {
 }
 
 
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, '', 'serviceworker.js')
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, '', '/home/serviceworker.js')

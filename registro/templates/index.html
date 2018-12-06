@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 	<link rel="manifest" href="/manifest.json">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
     <!---NAVBAR--->    
@@ -41,9 +41,49 @@
 
     <br>
 
-    <div>
-            <img src="/registro/static/img/LOGO.png" style="max-width:100%;width:auto;height:auto;">
-    </div>
+   
+
+    {% if request.user.is_superuser %}
+    <h1 style="text-align: center; color: white;"> Listado de Tiendas no aprobadas</h1>
+    {% if listas %}
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Sucursal</th>
+                <th>Direccion</th>
+                <th>Ciudad</th>
+                <th>Region</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for l in listas %}
+            {% if not l.aprobado %}
+            <tr>
+                <td>{{l.nombre}}</td>
+                <td>{{l.sucursal}}</td>
+                <td>{{l.direccion}}</td>
+                <td>{{l.ciudad}}</td>
+                <td>{{l.region}}</td>
+                <td>
+                    <form action="aprobar_T/{{l.id}}" method="POST">
+                        {% csrf_token %}                                                  
+                        <button class="btm btn-default"  type="submit">Aprobar</button>                                                 
+                    </form>
+                    <form action="eliminar_T/{{l.id}}" method="POST">
+                        {% csrf_token %}                                                  
+                        <button class="btm btn-danger"  type="submit">eliminar</button>                                                 
+                    </form>
+                </td>
+                
+            {% endif %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% endif %}
 
 
     <!--FOOTER-->
@@ -125,7 +165,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-            navigator.serviceWorker.register('../serviceworker.js')
+            navigator.serviceWorker.register('./serviceworker.js')
             .then(function() {
             console.log('ServiceWorker registered!');
       })
@@ -134,6 +174,25 @@
       });
   });
 }
+    </script>
+
+<script>
+        var modal = document.getElementById('aprobar');
+
+        var btn = document.getElementById("btnaprobar");
+
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }  
     </script>
 </body>
 </html>
