@@ -24,8 +24,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'listado' %}"> LISTADOS</a></li>
-                <li><a href="{% url 'tiendas' %}"> TIENDAS</a></li>
-                
+                <li><a href="{% url 'tiendas' %}"> TIENDAS</a></li>                
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if not user.is_authenticated %}
@@ -51,7 +50,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="inputBox ">
-                                        <div class="inputText">Nombre de Tienda</div>
+                                        <h3>Nombre de Tienda</h3>
                                         <input type="text" name="" class="input">
                                     </div>
                                 </div>
@@ -60,14 +59,14 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="inputBox">
-                                        <div class="inputText">Sucursal</div>
+                                        <h3>Sucursal</h3>
                                         <input type="text" name="" class="input">
                                     </div>
                                 </div>
     
                                 <div class="col-sm-6">
                                     <div class="inputBox">
-                                        <div class="inputText">Direccion</div>
+                                        <h3>Direccion</h3>
                                         <input type="text" name="" class="input">
                                     </div>
                                 </div>
@@ -76,7 +75,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="inputBox">
-                                        <div class="inputText">Ciudad</div>
+                                        <h3>Ciudad</h3>
                                         <textarea class="input"></textarea>
                                     </div>
                                 </div>
@@ -85,7 +84,7 @@
                             <div class="row">
                                     <div class="col-sm-6">
                                         <div class="inputBox">
-                                            <div class="inputText">Region</div>
+                                            <h3>Region</h3>
                                             <textarea class="input"></textarea>
                                         </div>
                                     </div>

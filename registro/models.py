@@ -6,6 +6,14 @@ class Usuario():
     username = models.CharField(max_length = 100)
     password = models.CharField(max_length = 100)
 
+
+class Tienda():
+    nombre = models.CharField(max_length = 100)
+    sucursal = models.CharField(max_length = 100)
+    direccion = models.CharField(max_length = 100)
+    ciudad = models.CharField(max_length = 100)
+    region = models.CharField(max_length = 100)
+
 class Producto():
     nombre = models.CharField(max_length = 100)
     costoP = models.IntegerField()

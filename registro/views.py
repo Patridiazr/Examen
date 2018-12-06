@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import logout, authenticate, login as auth_login
-from .models import Usuario, Producto
+from .models import Usuario, Producto, Tienda
 # Create your views here.
 
 
@@ -51,3 +51,13 @@ def crear_U(request):
     usuario.save()
     usu.save()
     return redirect('ingresar')
+
+
+# Tienda
+def crear_T(request):
+    nombre
+    sucursal
+    direccion
+    ciudad
+    
+# Producto
