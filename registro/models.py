@@ -2,19 +2,19 @@ from django.db import models
 
 # Create your models here.
 
-class Usuario():
+class Usuario(models.Model):
     username = models.CharField(max_length = 100)
     password = models.CharField(max_length = 100)
 
 
-class Tienda():
+class Tienda(models.Model):
     nombre = models.CharField(max_length = 100)
     sucursal = models.CharField(max_length = 100)
     direccion = models.CharField(max_length = 100)
     ciudad = models.CharField(max_length = 100)
     region = models.CharField(max_length = 100)
 
-class Producto():
+class Producto(models.Model):
     nombre = models.CharField(max_length = 100)
     costoP = models.IntegerField()
     costoR = models.IntegerField()

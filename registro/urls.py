@@ -4,6 +4,12 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login 
 from django.contrib.auth.decorators import login_required
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'usuario',views.UsuarioViewSet)
+
 
 urlpatterns =[
     path('home/',views.index, name="index"),
@@ -14,4 +20,5 @@ urlpatterns =[
     path('',views.ingresar, name="ingresar"),
     path('salir/',views.logout, name="salir"),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('api/', include(router.urls)),
 ]

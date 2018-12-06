@@ -6,6 +6,11 @@ from .models import Usuario, Producto, Tienda
 # Create your views here.
 
 
+#import de api 
+
+from rest_framework import viewsets
+from .serializer import UsuarioSerializer
+
 # REDIRECCION A PAGINAS
 def index(request):
     return render(request,'index.html')
@@ -27,7 +32,6 @@ def ingresar(request):
 
 
 # LOGIN
-
 def login_iniciar(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')
@@ -55,6 +59,9 @@ def crear_U(request):
     usu.save()
     return redirect('ingresar')
 
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
 
 # Tienda
 def crear_T(request):
@@ -64,3 +71,12 @@ def crear_T(request):
     ciudad
     
 # Producto
+
+
+
+
+
+
+
+
+
