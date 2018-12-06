@@ -9,6 +9,7 @@ urlpatterns =[
     path('home/',views.index, name="index"),
     path('listado/',views.listado, name="listado"),
     path('tiendas/',views.tiendas, name="tiendas"),
+    path('prductos/',views.productos, name="productos"),
     path('registro/',views.registro, name="registro"),
     path('',views.ingresar, name="ingresar"),
     path('salir/',views.logout, name="salir"),
